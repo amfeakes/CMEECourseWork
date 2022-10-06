@@ -13,5 +13,5 @@
 !*.tex
 !*.bib
 !week1/sandbox/testfind/dir1/file1.tex
-
+!filetoremove.sh
 
