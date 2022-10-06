@@ -1,0 +1,4 @@
+# 1 count lines within files 
+wc -l <  407228326.txt 407228412.txt e.coli.fasta
+
+
