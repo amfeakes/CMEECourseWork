@@ -1,6 +1,9 @@
 #!/bin/sh
-
-## Illustrates the use of variables 
+#Author: Amy Feakes amy.feakes222@imperial.ac.uk
+#Script: variable.sh
+#Desc: illustrates the use of variables 
+#Arguments: none
+#Date: Oct 2022
 
 # Special variables
 

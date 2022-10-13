@@ -12,6 +12,13 @@
 !*.sh
 !*.tex
 !*.bib
-!week1/sandbox/testfind/dir1/file1.tex
-!filetoremove.sh
+!*.md
+
+#week1 edits 
+!week1/code/*.txt
+!week1/data/fasta/*
+
+
+##always exculded 
+.idea
 

@@ -1,0 +1,14 @@
+# 1 count lines within files
+ ## issue is it also has the total (need to work out how to remove)
+wc -l data/fasta/*.fasta
+# 2 print everything from the second line from ecolifasta.
+cat data/fasta/ecoli.fasta | tail -n+2
+# 3 count the sequence length of this genome 
+cat data/fasta/ecoli.fasta | tail -n+2 | wc -m
+# 4 count matches of "ATGC"
+cat data/fasta/ecoli.fasta |tail -n+2 |tr -d "\n" | grep -i -o ATGC | wc -l
+# 5 compute the AT/GC ratio 
+## currently the number is very wrong 
+echo `cat data/fasta/ecoli.fasta |tail -n+2 |tr -d "\n" | grep -i -o 'A\|T' | wc -l` / `cat data/fasta/ecoli.fasta |tail -n+2 |tr -d "\n" | grep -i -o 'G\|C' | wc -l`
+
+
