@@ -17,7 +17,7 @@
 #week1 edits 
 !week1/code/*.txt
 !week1/data/fasta/*
-!week1/results
+
 
 ##always exculded 
 .idea
