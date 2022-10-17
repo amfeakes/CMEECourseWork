@@ -12,7 +12,7 @@ for line in f:
 f.close()
 
 # Same example, skip blank lines 
-f = open('../sanbox/test.txt', 'r')
+f = open('../sandbox/test.txt', 'r')
 for line in f:
     if len(line.strip()) > 0:
         print(line)

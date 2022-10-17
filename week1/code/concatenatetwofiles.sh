@@ -15,11 +15,11 @@ fi
 
 #then, if two files are provided, concatonte 
 
-cat $1 > mergedfile.sh
-cat $2 >> mergedfile.sh
+cat $1 > mergedfile.txt
+cat $2 >> mergedfile.txt
 
 #save this file in results 
-mv mergedfile.sh  ../results/$3
+mv mergedfile.txt  ../results/$3
 
 # feedback 
     echo "Merged file is saved in results as mergedfile"

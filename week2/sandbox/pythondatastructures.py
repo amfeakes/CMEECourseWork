@@ -3,7 +3,7 @@ mylist = [3,2.44,'green',True]
 mylist [1]
 mylist [0]
 mylist [4]
-mylist[2] = 'blue'
+mylist[2] A= 'blue'
 mylist
 mylist.append('a new item')
 type(mylist)
@@ -14,7 +14,8 @@ mylist
 #Tuples 
 foodweb=[('a','b'),('a','c'),('b','c'),('c','c')]
 foodweb
-foodweb[0]
+foodwe
+b[0]
 foodweb[0][0]
 foodweb[0][0] = "bbb"
 foodweb[0] = ("bbb","ccc")
@@ -86,6 +87,7 @@ b = copy.deepcopy(a)
 a[0] [1] = 22
 print(a)
 print(b)
+
 
 #python with strings 
 

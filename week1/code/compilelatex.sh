@@ -25,8 +25,11 @@ fi
    
 # moving the output 
  mv $NAME.pdf ../results
- open -a "Preview" ../results/$NAME.pdf &
-## Cleanup 
+
+ #this line of code is limited to mac
+ #open -a "Preview" ../results/$NAME.pdf &
+
+## Cleanup
    # [ -e *.aux ] && rm *.aux
     #[ -e *.log ] && rm *.log
     #[ -e *.bbl ] && rm *.bbl
