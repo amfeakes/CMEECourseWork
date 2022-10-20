@@ -13,6 +13,7 @@
 !*.tex
 !*.bib
 !*.md
+!*.txt
 
 #week1 edits 
 !week1/code/*.txt
