@@ -19,7 +19,8 @@
 !week1/code/*.txt
 !week1/data/fasta/*
 
-
+#week2 edits 
+!week2/data/sequences.csv
 ##always exculded 
 .idea
 
