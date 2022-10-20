@@ -1,9 +1,8 @@
 #!/usr/bin/env ipython3
 
 """Some functions exemplifying the use of control statements"""
-#docstrings are considered part of the running code (normal comments are #stripped). 
-#Hence, you can access your docstrings at run time
 
+__appname__ = 'test_control_flow.py'
 __author__ = 'Amy Feakes (amf222@ic.ac.uk)'
 __version__ = '0.0.1'
 
@@ -24,10 +23,11 @@ def even_or_odd(x=0): #if not specificed, x should take the valuo 0
     >>> even_or_odd(-2)
     '-2 is Even'
   """
+   #Define function to be tested
+
     if x % 2 == 0: #this is the conditional if
         return f"{x} is Even"
     return f"{x} is Odd"
-
 
 
 ## standard functions##
@@ -39,6 +39,6 @@ def main(argv):
 if (__name__ == "__main__"):
     status = main(sys.argv)
 
-doctest.testmod()
+doctest.testmod() #to run with embedded tests
 
 

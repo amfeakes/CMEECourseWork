@@ -1,11 +1,11 @@
 #!/usr/bin/env ipython3
 
+""" This exercise  is based on writing list comprehensions and loops for a
+ month and rainfall tuples ."""
+
 __appname__ = 'lc2.py'
 __author__ = 'Amy Feakes (amf222@ic.ac.uk)'
 __version__ = '0.0.1'
-
-""" This exercise  is based on writing list comprehensions and loops for a
- month and rainfall tuples ."""
 
 # Average UK Rainfall (mm) for 1910 by month
 # http://www.metoffice.gov.uk/climate/uk/datasets
@@ -41,7 +41,7 @@ less_lc = [i[0] for i in rainfall if i[1] < 50 ]
 print("Months when then amount of rainfall was less than 50mm:"+ "\n",less_lc)
 
 ##Using loops
-print("Using loops")
+print("\n" + "Using loops")
 #creates an empty space
 greater_loop = []
 #labels each part of the list above

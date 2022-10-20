@@ -1,31 +1,26 @@
-i = 1
-x = 0
-def a_function(y):
-    x = 0
-    for i in range(y):
-        x += 1 
-    return x
-x = a_function(10)
-    print(x)
-    print(i)
+#!/usr/bin/env ipython3
 
-#global varaibles 
+"""This script shows examples of variable scope."""
 
-_a_global = 10 #a global variable 
+__appname__ = 'scope.py'
+__author__ = 'Amy Feakes (amf222@ic.ac.uk)'
+__version__ = '0.0.1'
+############
+_a_global = 10 #a global variable - outside of a function
 
 if _a_global >= 5:
     _b_global = _a_global + 5 #also a global variable 
 print("Before calling a_fuction, outside the function, the value of _a_global is", _a_global)
 print("Before calling a_function, outside the function, the value of _b_global is", _b_global)
 
-def a_fuction():
-    _a_global = 4 #a local variable 
+def a_function():
+    _a_global = 4 #a local variable  - as function is named this value has been changed ONLY inside the function
 
     if _a_global >= 4:
-        _b_global = _a_global + 5 #also a local variable 
+        _b_global = _a_global + 5 #also a local variable - updated inside the fucntion
 
     _a_local = 3
-
+    #this is in the function - so will only exist inside, not outside
     print("Inside the function, the value of _a_global is", _a_global)
     print("Inside the function, the value of _b_global is", _b_global)
     print("Inside the function, the value of _a_local is", _a_local)
@@ -34,10 +29,8 @@ a_function()
 
 print("After calling a_function, outside the function, the value of _a_global is (still)", _a_global)
 print("After calling a_function, outside the function, the value of _a_global is (still)", _b_global)
-
-print("After calling a_function, outside the function, the value of _a_local is (still)", _a_local)
-
-###
+#print("After calling a_function, outside the function, the value of _a_local is ", _a_local) #this is not possible, creates an error
+###########################################################
 
 _a_global = 10
 
@@ -50,7 +43,7 @@ a_function()
 
 print("Outside the function, the value of _a_global is", _a_global)
 
-####
+###############
 
 _a_global = 10
 
@@ -58,16 +51,15 @@ print("Before calling a_function, outside the function, the value of _a_global i
 
 def a_function():
     global _a_global
-    _a_global = 5
-    _a_local = 4
+    _a_global = 5 #outside the function
+    _a_local = 4 #in the function
 
     print("Inside the function, the value of _a_global is", _a_global)
     print("Inside the function, the vaule of _a_local is", _a_local)
 a_function()
 
 print("After calling a_function, outside the function, the value of _a_global now is", _a_global)
-
-###
+#####################
 def a_function():
     _a_global = 10
 
@@ -79,18 +71,14 @@ def a_function():
     _a_function2()
 
     print("After calling a_function2, value of _a_global is", _a_global)
-
 a_function()
 
 print("The value of a_global in main workspace / namespace now is", _a_global)
+###########################
 
-
-
-###
 _a_global = 10
 
 def a_function():
-
     def _a_function2():
         global _a_global
         _a_global = 20
@@ -103,41 +91,4 @@ def a_function():
 a_function()
 
 print("The value of a_global in main workspace / namespace now is", _a_global)
-
-
-###return directive 
-
-def modify_list_1(some_list):
-    print('got', some_list)
-    some_list = [1, 2, 3, 4]
-    print('set to', some_list)
-
-my_list = [1, 2, 3]
-
-print('before, my_list=', my_list)
-
-modify_list_1(my_list)
-
-print('after, my_list =', my_list)
-###the return function means that the origingal my list is explicity changed - ie now the 4 is in the original list 
-def modify_list_2(some_list):
-    print('got', some_list)
-    some_list = [1, 2, 3, 4]
-    print('set to', some_list)
-    return some_list
-
-my_list = modify_list_2(my_list)
-
-print('after, my_list =', my_list)
-
-###this now is to modify it back to the original list, using append 
-def modify_list_3(some_list):
-    print('got', some_list)
-    some_list.append(4) #this is the modiication to the list
-    print('changed to', some_list)
-my_list = [1, 2, 3]
-print('before, my_list =', my_list)
-
-modify_list_3(my_list)
-
-print('after, my_list', my_list)
+#####################

@@ -1,9 +1,17 @@
+#!/usr/bin/env ipython3
+
+"""This script is an example of a function which has a bug """
+
+__appname__ = 'debugme.py'
+__author__ = 'Amy Feakes (amf222@ic.ac.uk)'
+__version__ = '0.0.1'
+
 def buggyfunc(x):
     y = x
     for i in range(x):
         y = y-1
-      #  import pdb; pdb.set_trace() ##this is a breakpoint
-        z = x/y
+        z = x / y
+        #  import pdb; pdb.set_trace() ##this is a breakpoint
         except ZeroDivisionError:
             print(f"The result of dividing a number by zero is undefined")
         except:

@@ -4,14 +4,15 @@
 #docstrings are considered part of the running code (normal comments are #stripped). 
 #Hence, you can access your docstrings at run time
 
+__appname__ = 'control_flow.py'
 __author__ = 'Amy Feakes (amf222@ic.ac.uk)'
 __version__ = '0.0.1'
 
 ##imports##
 import sys #module to interface out program with the operating system 
 
-def even_or_odd(x=0): #if not specificed, x should take the valuo 0 
-    """Fine whether a number x is odd or even."""
+def even_or_odd(x=0): #if not specificed, x should take the value 0
+    """Find whether a number x is odd or even."""
     if x % 2 == 0: #this is the conditional if 
         return f"{x} is Even"
     return f"{x} is Odd"
@@ -49,16 +50,16 @@ def find_all_primes(x=22):
     print(f"There are {len(allprimes)} primes between 2 and {x}")
     return allprimes
 
-## standard functions##
+# standard functions##
 def main(argv):
     print(even_or_odd (22))
-    print(even_or_odd (21~))
+    print(even_or_odd (21))
     print(largest_divisor_five(120))
     print(largest_divisor_five(121))
     print(is_prime(60))
     print(is_prime(59))
     print(find_all_primes(100))
-    return 0 
+    return 0
 
 if (__name__ == "__main__"):
     status = main(sys.argv)

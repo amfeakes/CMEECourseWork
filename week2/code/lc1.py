@@ -1,11 +1,10 @@
 #!/usr/bin/env ipython3
 
+""" This exercise  is based on writing list comprehensions and loops for a
+ list of bird species (latin name, common name and mean body masses)."""
 __appname__ = 'lc1.py'
 __author__ = 'Amy Feakes (amf222@ic.ac.uk)'
 __version__ = '0.0.1'
-
-""" This exercise  is based on writing list comprehensions and loops for a
- list of bird species (latin name, common name and mean body masses)."""
 
 birds = ( ('Passerculus sandwichensis','Savannah sparrow',18.7),
           ('Delichon urbica','House martin',19),
@@ -30,7 +29,7 @@ print("Mean body mass", mean_body_mass)
 
 # (2) Now do the same using conventional loops (you can choose to do this 
 # before 1 !). 
-print("Using loops")
+print("\n" + "Using loops")
 #first creates an empty space to create the new variable
 latin_names_loop = []
 #iterate over a list
