@@ -13,8 +13,11 @@ The repositories for each week respectively
 
 ### [Week 2](week2)
 
+  * Biological computing in Python (I)
 
 ### [Week 3](week3)
+  
+  * Biological computing in R 
 
 
 
