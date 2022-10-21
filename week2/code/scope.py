@@ -29,7 +29,9 @@ a_function()
 
 print("After calling a_function, outside the function, the value of _a_global is (still)", _a_global)
 print("After calling a_function, outside the function, the value of _a_global is (still)", _b_global)
-#print("After calling a_function, outside the function, the value of _a_local is ", _a_local) #this is not possible, creates an error
+print("After calling a_function, outside the function, the value of _a_local is ", _a_local)
+#this is not possible, creates an error
+#why - because a local is only defined within the function
 ###########################################################
 
 _a_global = 10

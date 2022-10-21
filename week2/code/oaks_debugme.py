@@ -14,16 +14,16 @@ import doctest
 #Define function
 def is_an_oak(name):
     """ Returns True if name is starts with 'quercus'
-    >>> is_an_oak('Quercus')
+    >>> is_an_oak('Quercus ')
     True
 
-    >>> is_an_oak('Betula')
+    >>> is_an_oak('Betula ')
     False
 
-    >>> is_an_oak('Populus')
+    >>> is_an_oak('Populus ')
     False
     """
-    return name.lower().startswith('quercus')
+    return name.lower().startswith('quercus ') #quercus space as space is part of the string
 
 def main(argv): 
     f = open('../data/TestOaksData.csv','r')
@@ -35,7 +35,7 @@ def main(argv):
         print(row)
         print ("The genus is: ") 
         print(row[0] + '\n')
-        if is_an_oak(row[0]):
+        if is_an_oak(row[0]+" "): #add a space so it matches
             print('FOUND AN OAK!\n')
             csvwrite.writerow([row[0], row[1]])    
 
