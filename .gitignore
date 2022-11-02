@@ -21,6 +21,11 @@
 
 #week2 edits 
 !week2/data/sequences.csv
+
+#week3 edits 
+*.Rhistory
+!week3/data/*
+
 ##always exculded 
 .idea
 

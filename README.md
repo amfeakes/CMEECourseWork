@@ -18,6 +18,7 @@ The repositories for each week respectively
 ### [Week 3](week3)
   
   * Biological computing in R 
+  * Data management and visualisation 
 
 
 

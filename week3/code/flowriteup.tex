@@ -1,0 +1,40 @@
+\documentclass[a4paper]{article}
+\usepackage[margin=0.3in]{geometry}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{hyperref}
+
+\title{Is Florida getting warmer?}
+
+\author{Amy Feakes}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+The state of Florida is situated on the South East coast of the United States. The population of the state is over 21.5 million (\cite{census}) . The low topography, and the variability in the precipitation has left Florida vulnerable to climate change. Data collected over the past few decades has suggested a reducing in the wet season, with some local variations (\cite{temp}). This study will use annual temperature measurements to see if there has been an significant warming in Florida in the 20th century. 
+
+\section{Method}
+
+The data used is the annual mean temperature recorded in the Key West, this is a US city which is part of the Florida Keys Archipelago, from 1901-2001. The correlation coefficient between temperature and time of the actual data is calculated. Then using permutation analysis the correlation coefficient is recalculated a further 1000 times. This uses permutation analysis to randomly shuffle the collected annual temperatures. The Pearson method is used to measure the correlation coefficients, as both year and temperature are continuous variables. Then the fraction of the random correlation coefficient that are greater then the original coefficient is calculated to infer the asymptomatic p-value. 
+
+\section{Results}
+
+The mean annual temperature in Florida increased significantly over the period of data collection. The observed correlation coefficient of the data was 0.53, with the permutation analysis creating a p-value of 0.00. 
+
+\includegraphics[scale=0.4]{../results/floridaplots.pdf}
+
+\section{Discussion}
+
+The results suggest that Florida is warming. The impacts of climate change are likely to be felt within this area - and this should suggest to governing bodies there is a need to think about mitigation and future-proofing. To improve this study, work should be done to include other forms of climate data collected over the 20th Century to further support this conclusion. 
+
+\bibliographystyle{plain}
+
+\bibliography{floridabiblio}
+
+
+\end{document}
