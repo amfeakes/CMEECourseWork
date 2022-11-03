@@ -1,9 +1,17 @@
+#!/usr/bin/env Rscript
+
 #Author: Amy Feakes
 #Script: florida.R
 #Description: calculating correlation coefficients to understand if florida is warming
 #Date: Oct 2022
+
+#Clear workspace
+rm(list=ls())
+
+#Dependencies 
 require(ggplot2)
 require(cowplot)
+
 ###Is Florida getting warmer?###
 ###AIMS####
 #you need to calculate the correlation coefficients between temperature and time
@@ -63,12 +71,11 @@ pvalue <- (sum(allcor>flocor)/length(allcor))
 pvalue
 
 
-
 #Plotting temp and year 
 
+#ggplot theme update
 theme_update(plot.title = element_text(hjust = 0.5))
-
-
+#the plot, scale fill to create gradient, removing legend
 plott_y<- ggplot(ats, aes(x=Year, y=Temp, colour=Temp)) +
   geom_point() +
   labs(x="Year", y="Annual temperature") + 
@@ -80,7 +87,7 @@ plott_y
 
 
 #Plotting random corlarion 
-
+#geom_density (similar to hist), creating x limits for the plot 
 plot_cor <- ggplot(dfall, aes(x=allcor)) +
   geom_density(colour="darkblue", fill="lightblue") +
   labs(x="Correlation Coefficient", y="Frequency") +

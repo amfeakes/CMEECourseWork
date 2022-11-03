@@ -1,8 +1,14 @@
+#!/usr/bin/env Rscript
+
 #Author: Amy Feakes
 #Script: datawrang.R
 #Description: examples of data wrangling practices using the poundhill dataset 
 #Date: Oct 2022
 
+#Clear workspace
+rm(list=ls())
+
+#Dependencies
 require(reshape2)
 ################################################################
 ################## Wrangling the Pound Hill Dataset ############
@@ -55,4 +61,8 @@ dim(MyWrangledData)
 
 ############# Exploring the data (extend the script below)  ###############
 
+plot(MyWrangledData)
 
+MyWrangledData[, "Species"] <- as.factor(MyWrangledData[, "Species"])
+list(MyWrangledData$Species)
+hist(MyWrangledData$Species == "Crepis capillaris")

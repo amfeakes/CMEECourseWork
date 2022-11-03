@@ -1,7 +1,14 @@
+#!/usr/bin/env Rscript
+
 #Author: Amy Feakes
 #Script: PP_Regress.R
 #Description: 
 #Date: Oct 2022
+
+#Clear workspace
+rm(list=ls())
+
+#Dependencies 
 require(ggplot2)
 require(tidyverse)
 require(dplyr)
@@ -28,7 +35,10 @@ df <- df %>%
 #head(df)
 
 #### creating the plot ####
-
+#geom_point creates the scatter plot
+#geom_smooth adds likes with error margins 
+#aspect ratio creates the margins in the plots
+#scale is logged and labels are added in a scientific format
 
 regress_plot <- ggplot(df, aes(x=Prey.merge, y=Predator.mass, colour=Predator.lifestage)) + 
   geom_point(shape=3) +
@@ -41,10 +51,6 @@ regress_plot <- ggplot(df, aes(x=Prey.merge, y=Predator.mass, colour=Predator.li
   scale_y_log10("Predator Mass in grams", labels = scales::scientific)
 
 #### saving plot ####
-
-theme(panel.spacing.y = unit(2, "lines")) +
-  theme(strip.text.y = element_text(size = 11)) +
-          
           
 pdf(paper = "a4", width = 0, height = 0,"../results/PP_Regress_plot.pdf")
 print(regress_plot)
@@ -53,6 +59,9 @@ dev.off()
 #### creating corresponding results ####
 
 #output df generated, and lm inside each section to get intercept,slop rsq and p values 
+#ddply - this takes the subset of a data frame,applies a function then combines the results into a new df
+#the summarise command is used to take what is wanted into the df 
+#the [] refer to which value in the summary table is transferred into the df 
 pp_results <- ddply(df, .(Type.of.feeding.interaction, Predator.lifestage),
                     summarise,
                     Slope = summary(lm(Predator.mass~Prey.merge))$coefficients[2],
@@ -65,6 +74,9 @@ pp_results <- ddply(df, .(Type.of.feeding.interaction, Predator.lifestage),
 head(pp_results)
 
 #F statistic is two variables, must be done separatelty
+#dlply applies a function to each subset in the df, like above
+#the results are returned in a different format, this is require for F stat
+
 lm <- dlply(df, .(Type.of.feeding.interaction, Predator.lifestage), 
             function(x) lm(Predator.mass ~ Prey.merge, data=x))
 

@@ -1,10 +1,17 @@
+#!/usr/bin/env Rscript
+
 #Author: Amy Feakes
 #Script: PP_Dists.R
 #Description: draws three subplots of an ecological dataset and calculates means and medians 
 #Date: Oct 2022
 
+#Clear workspace
+rm(list=ls())
+
+#Dependencies
 require(ggplot2)
 require(tidyverse)
+
 #Draw and saves three figures - containing subplots of distribtuions 
 #of predator mass, prey mass and size ratio of prey mass/predator mass - 
 #by feeding interaction type
@@ -26,7 +33,7 @@ levels(df$Type.of.feeding.interaction)
 #[3] "planktivorous"          "predacious"            
 #[5] "predacious/piscivorous"
 
-
+#for ggplot package
 theme_update(plot.title = element_text(hjust = 0.5))
 
 ####converting all prey mass to g ####
@@ -79,7 +86,7 @@ print(pred_all)
 dev.off()
 
 ####prey subplots ####
-
+#using facet grid, subplots by type of feeding interaction 
 prey_all <- ggplot(df, aes(x=log(Prey.merge),
                            fill=Type.of.feeding.interaction)) + 
   geom_density() + 

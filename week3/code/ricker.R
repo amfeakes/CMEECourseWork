@@ -1,7 +1,12 @@
+#!/usr/bin/env Rscript
+
 #Author: Amy Feakes
 #Script: ricker.R
 #Description: Runs a simulation of the ricker model
 #Date: Oct 2022
+
+#Clear workspace
+rm(list=ls())
 
 ricker <-function(N0=1, r=1, K=10, generations=50)
 {

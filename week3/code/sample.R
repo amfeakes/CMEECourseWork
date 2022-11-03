@@ -1,9 +1,12 @@
+#!/usr/bin/env Rscript
+
 #Author: Amy Feakes
 #Script: sample.R
 #Description: sampling numbers using lapply and sapply 
 #Date: Oct 2022
 
-
+#Clear workspace
+rm(list=ls())
 
 ####Functions####
 

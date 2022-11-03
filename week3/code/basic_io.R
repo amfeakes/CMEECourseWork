@@ -1,8 +1,12 @@
+#!/usr/bin/env Rscript
+
 #Author: Amy Feakes
 #Script: basic_io.R
 #Description: script to illustrate R input-output
 #Date: Oct 2022
 
+#Clear workspace
+rm(list=ls())
 
 ##A simple script to illustrate R input-output 
 ##Run line by line and check inputs outputs to understand what is happening 

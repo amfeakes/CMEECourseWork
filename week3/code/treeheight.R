@@ -1,7 +1,12 @@
+#!/usr/bin/env Rscript
+
 #Author: Amy Feakes
 #Script: treeheight.R
 #Description: Practical work using functions 
 #Date: Oct 2022
+
+#Clear workspace
+rm(list=ls())
 
 
 ###DESCRIPTION####

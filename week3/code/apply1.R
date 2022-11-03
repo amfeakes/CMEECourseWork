@@ -1,7 +1,13 @@
+#!/usr/bin/env Rscript
+
 #Author: Amy Feakes
 #Script: apply1.R
 #Description: applying family functions 
 #Date: Oct 2022
+
+#Clear workspace 
+rm(list=ls())
+
 
 #apply family functions 
 #example of use - to apply a function to the rows of a matrix

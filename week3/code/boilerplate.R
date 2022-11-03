@@ -1,7 +1,15 @@
+#!/usr/bin/env Rscript
+
 #Author: Amy Feakes
 #Script: boilerplate.R
 #Description: boilerplate R script - template
 #Date: Oct 2022
+
+#Clear workspace
+rm(list=ls())
+
+#Dependencies 
+
 
 #A boilerplate R script 
 

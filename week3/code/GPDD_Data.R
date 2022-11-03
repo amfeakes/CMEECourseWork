@@ -1,8 +1,14 @@
+#!/usr/bin/env Rscript
+
 #Author: Amy Feakes
 #Script: GPDD_Data.R
 #Description: Mapping with the GPDD database
 #Date: Oct 2022
 
+#Clear workspace
+rm(list=ls())
+
+#Dependencies
 require(maps)
 
 #load the data

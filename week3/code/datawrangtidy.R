@@ -1,7 +1,14 @@
+#!/usr/bin/env Rscript
+
 #Author: Amy Feakes
 #Script: datawrang.R
 #Description: examples of data wrangling practices using tidyverse commands, on the pound hill data set 
 #Date: Oct 2022 
+
+#Clear workspace
+rm(list=ls())
+
+#Dependencies
 require(tidyverse) 
 #go through and change to tidyverse commands 
 ################## Wrangling the Pound Hill Dataset ############

@@ -1,12 +1,15 @@
+#!/usr/bin/env Rscript
+
 #Author: Amy Feakes
 #Script: Vectorize2.R
 #Description: stochastic ricker model modifed 
 #Date: Oct 2022
 
+#Clear workspace
+rm(list=ls())
+
+
 # Runs the stochastic Ricker equation with gaussian fluctuations
-
-rm(list = ls())
-
 stochrick <- function(p0 = runif(1000, .5, 1.5), r = 1.2, K = 1, sigma = 0.2,numyears = 100)
 {
 

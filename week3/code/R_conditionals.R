@@ -1,7 +1,12 @@
+#!/usr/bin/env Rscript
+
 #Author: Amy Feakes
 #Script: R_conditionals.R
 #Description: using functions with conditionals 
 #Date: Oct 2022
+
+#Clear workspace
+rm(list=ls())
 
 #Checks if an integer is even
 is.even <- function(n=2) {

@@ -1,7 +1,12 @@
+#!/usr/bin/env Rscript
+
 #Author: Amy Feakes
 #Script: next.R
 #Description: using next to skip to the next iteration in a loop 
 #Date: Oct 2022
+
+#Clear workspace
+rm(list=ls())
 
 #using next
 #skips to the next iteration of a loop 

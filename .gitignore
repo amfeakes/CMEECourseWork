@@ -25,7 +25,7 @@
 #week3 edits 
 *.Rhistory
 !week3/data/*
-
+*week3/code/Rplots.pdf
 ##always exculded 
 .idea
 

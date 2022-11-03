@@ -1,8 +1,12 @@
+#!/usr/bin/env Rscript
+
 #Author: Amy Feakes
 #Script: vectorize1.R
 #Description: vectorisation to su, all elements of a matrix 
 #Date: Oct 2022
 
+#Clear workspace
+rm(list=ls())
 
 M <- matrix(runif(1000000),1000,1000)
 

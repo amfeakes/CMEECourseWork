@@ -25,6 +25,8 @@ plyr
 
 dplyr
 
+sqldf
+
 ## Installation 
 If you wish to run the scripts within the repository - you should clone the repository.
 ## Usage
@@ -84,6 +86,10 @@ This script plots girko's law simulation and outputs the results in a pdf.
 
 This script shows how to map in R using the 'maps' package, it creates a world map with points.
 
+[MyBars.R](code/MyBars.R)
+
+This script creates a plot with ggplot and demonstrates annotation on the plot. 
+
 [next.R](code/next.R)
 
 This script demonstrates how to use the next function within loops.
@@ -92,6 +98,10 @@ This script demonstrates how to use the next function within loops.
 
 This script is to demonstrate data visualisation methods, it inputs data on body mass distribution and then 
 outputs three pdf's with subplots. 
+
+[plotLin.R](code/plotLin.R)
+
+This script demonstates annontating on a linear regression plot. 
 
 [PP_Regress.R](code/PP_Regress.R)
 
@@ -112,6 +122,10 @@ This script is the ricker model.
 [sample.R](code/sample.R)
 
 This script demonsatres sampling random numbers using lapply and sapply. 
+
+[SQLin.R](code/SQLinR.R)
+
+The script demonstrates how the SQLite package can be used to build and maniupulate databases, using an input from the data directory. 
 
 [treeheight.R](code/treeheight.R)
 

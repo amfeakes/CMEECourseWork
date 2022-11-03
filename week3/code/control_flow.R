@@ -1,7 +1,12 @@
+#!/usr/bin/env Rscript
+
 #Author: Amy Feakes
 #Script: control_flow.R
 #Description: if statements, for loops, while loops 
 #Date: Oct 2022
+
+#Clear workspace
+rm(list=ls())
 
 ####if statements ####
 # if (a) instead of if (a==TRUE) will give the same result 

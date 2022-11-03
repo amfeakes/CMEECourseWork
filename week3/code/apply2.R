@@ -1,7 +1,12 @@
+#!/usr/bin/env Rscript
+
 #Author: Amy Feakes
 #Script: apply2.R
 #Description: applying family functions, taking input 
 #Date: Oct 2022
+
+#Clear workspace
+rm(list=ls())
 
 
 #apply family function 

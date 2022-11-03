@@ -1,7 +1,12 @@
+#!/usr/bin/env Rscript
+
 #Author: Amy Feakes
 #Script: preallocate.R
 #Description: understanding preallocation to use fewer operations 
 #Date: Oct 2022
+
+#Clear workspace
+rm(list=ls())
 
 #pre-allocation 
 #this loop resizes a vector repeatdely - each time using more memory, that makes it slow 

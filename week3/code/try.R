@@ -1,7 +1,12 @@
+#!/usr/bin/env Rscript
+
 #Author: Amy Feakes
 #Script: try.R
 #Description: catching errors
 #Date: Oct 2022
+
+#Clear workspace
+rm(list=ls())
 
 
 ####CATCHING ERRORS####

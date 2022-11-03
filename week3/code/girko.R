@@ -1,8 +1,14 @@
+#!/usr/bin/env Rscript
+
 #Author: Amy Feakes
 #Script: girko.R
 #Description: script to combine plotting girko's law simulation and saves the results 
 #Date: Oct 2022
 
+#Clear workspace
+rm(list=ls())
+
+#Dependencies
 require(ggplot2)
 #building a function to calculate the ellipse
 
