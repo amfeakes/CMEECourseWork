@@ -63,6 +63,3 @@ dim(MyWrangledData)
 
 plot(MyWrangledData)
 
-MyWrangledData[, "Species"] <- as.factor(MyWrangledData[, "Species"])
-list(MyWrangledData$Species)
-hist(MyWrangledData$Species == "Crepis capillaris")
