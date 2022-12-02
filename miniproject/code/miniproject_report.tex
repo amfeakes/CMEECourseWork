@@ -1,0 +1,204 @@
+\documentclass[11pt]{article}
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+%% Sets page size and margins
+\usepackage[margin=2cm]{geometry}
+\usepackage{setspace}
+%% Useful packages
+\usepackage{amsmath}
+\usepackage{gensymb}
+\usepackage{graphicx}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{parskip}
+
+%%word count 
+\newcommand{\quickwordcount}[1]{
+		\begin{center}
+			{\large Word count:
+			\input{document.sum}}
+		\end{center}
+}
+
+\title{Mechanistic models outperform phenomenological models in determining population growth of bacterial populations }
+\author{Amy Feakes}
+\date{2nd December 2022}
+
+\onehalfspacing
+
+\begin{document}
+\maketitle
+\quickwordcount
+
+\begin{abstract}
+\begin{enumerate}
+\item The study of growth in bacteria populations is important in contributing to many fields of science including medicine, diseases, and food safety. Bacteria act as a good study system for modelling population biology.
+\item In this study, I model the population growth of different species of bacteria. Understanding which mechanistic and phenomenological models fit best to growth curves. Further analysis will understand if other environmental factors impact the best model fit. 
+\item Using OLS, I create two phenomenological models (quadratic and cubic polynomial), and I use NLLS methods to fit two mechanistic models (logistic and Gompertz) to the data.  Then I carry out an analysis of the models using Akaike information criterion with correction (AIC$_c$) and Akaike weights.
+\item My results suggest that the logistic model is the best-fitting model for unique growth curves of bacterial populations, followed by the cubic polynomial model. 
+\item This suggests that mechanistic models that utilise parameters that describe the process are important to the predictive power of models.
+\end{enumerate}
+\end{abstract}
+
+
+\section{Introduction}
+Population growth rate, as a concept, has existed for many centuries. Over time the concept has developed to include ideas of carrying capacity, mortality, and density effects, among others. More recent technological developments have allowed for matrix methods and a greater ability to study the complexity of growth rates within population biology \cite{sibly_population_2002}. 
+
+Population growth itself is the rate of per capita growth of a population.  A population will grow exponentially when abundance is low and resources are unlimited. As resources become limited the growth will slow. In the simplest form of calculating population growth, all individuals of a population are equal, this means that there is no accountancy of migration, births or deaths \cite{sibly_population_2002, gao_disease_1992}.
+
+By studying population growth, scientists are able to model growth curves. These are found in numerous areas of ecology and evolution and are central to understanding many concepts. Most living matter grows, with a time lag and asymptotic phase \cite{zwietering_modeling_1990,levins_strategy_1966}. Levins (1966) stresses the importance of dealing with multiple biological questions simultaneously to accurately understand the complexity of the systems within population biology \cite{levins_strategy_1966}. Some example uses of growth curves to understand greater issues include: estimating shelf life within food production \cite{grijspeerdt_estimating_1999}, in matrix models to identify key life stages of endangered species \cite{wisdom_life_2000}, and assessing disease persistence \cite{gao_disease_1992}. It is therefore important that studies are carried out to determine which models are optimal in fitting population growth, to be able to answer further biological questions. 
+
+Experiments designed to record the growth of bacteria, at a basic level, involve cultivating species in a specific medium, under measured conditions. These experiments have tended to be based on optical density measurements \cite{krishnamurthi_new_2021, zwietering_modeling_1990}. With developments in microplate readers and microbiology technology, the more recent 21st-century studies of microbiology growth rates have been improved. The tools accessible to scientists have aided progress in producing better models for bacterial growth curves \cite{krishnamurthi_new_2021}. 
+
+Empirical studies allude to the secondary and tertiary models, which incorporate dynamic conditions, such as temperature and medium. These models are used to understand the environmental determinants to bacterial growth curves. This stresses the importance of modelling microbial growth rates to a high standard within primary models \cite{peleg_microbial_2011}. Identifying specific environmental determinants of growth rate is challenging, however, developments in models to fit growth curves are improving our understanding of dynamic conditions \cite{fujikawa_new_2004, sibly_population_2002}. 
+
+This study will, however, focus simply on fitting primary models to understand population growth in bacterial populations. Biological science involves understanding what causes the patterns we see in the natural world. There are two general methods used to draw biological conclusions. The first is the null hypothesis, this is being decreasingly used as it just declares if the fit is more than just chance, and is not based on biological meaning. Whereas, drawing conclusions in biology using model comparisons is increasingly being used. They can illustrate processes in a simple form, as multiple models can be fitted to observed data, allowing model selection to occur. Using statistical analysis to compare multiple models creates a robust method to find the best model fit for a dataset \cite{johnson_model_2004}. 
+
+Model approaches occur in two different manners: phenomenological and mechanistic. Phenomenological models are established from statistical significance, using mathematical functions to define the biological process in the question being asked. This method lacks the interpretation of empirical data. Mechanistic models are based on theory, using the patterns found within empirical data in  to best fit models \cite{geritz_mathematical_2012, white_should_2019} .
+
+The use of empirical data allows parameters of mechanistic models to be linked to biological terms with definitions; for example parameters of population growth (r\textunderscore max, K and N). For this reason, mechanistic models are often seen as a superior form of modelling \cite{geritz_mathematical_2012, white_should_2019}. However, it is important to not immediately rule out the power of phenomenological models. There are specific examples that show the predictive power of phenomenological models \cite{white_should_2019, kozlowski_optimal_1992} has the capacity to greater predict outcomes over mechanistic models \newline  \cite{white_should_2019}.
+
+This study aims to examine how different models fit to unique growth curves of a variety of bacterial populations. I will use two phenomenological models (quadratic and cubic) and two mechanistic models (logistic and Gompertz) to fit to the data. Then using model selection I will determine which model and model type performs best. I will then spend a short time understanding if the species, medium and temperature have any impact on which model fits the unique growth curves best.  
+
+\section{Methods}
+
+\subsection{Data} 
+I studied ten datasets which aim to understand population growth in microbes. The data has been collected around the world, through lab experiments, using various species and mediums under different environmental conditions. The data contains the population (or biomass) at consistent time intervals and the medium, species and temperature conditions of each experiment.
+
+Based on each unique temperature, species, medium, citation and replicate number, I subset the dataset, to create 285 unique growth curves, where the sample size ranged from 4 to 151 replicas.  A small number of timepoints and population numbers were recorded as negative values. As this made up less than 1\% of the dataset, I decided to remove these; to allow for ease of working and to remove potential measurement and data input errors. I continued the model fitting on this subset data to identify unique growth curves. 
+
+\subsection{Computing}
+I used R version 4.2.2 for the data wrangling, using only the base R package, due to its ease of use. I continued to use R for the model fitting, statistical analysis and plotting, using packages tidyverse, ggplot2, minpack.lm, dplyr, and ggpubr. These packages collectively support consistency across the linear and non-linear models and notably good visualisation.  
+
+The report was written in \LaTeX, using packages to support embedding graphics. My work has been compiled to be fully reproducible, from taking the dataset through converting the LaTeX file to a pdf, using a bash script, version 3.2.57(1). 
+
+\subsection{Model fitting}
+I fitted a quadratic and cubic polynomial equation (\ref{first_eq}), (\ref{sec_eq}) using OLS. 
+
+\begin{equation}\label{first_eq}
+    N_{(t)} = at^2 + bt + c
+\end{equation}
+\begin{equation}\label{sec_eq}
+   N_{(t)} = at^3 + bt^2 + ct + d
+\end{equation}
+
+
+I fitted two non-linear models, the logistic model (\ref{third_eq}) and the Gompertz model (\ref{four_eq}). The parameters are as follows: r defines the growth rate, t is the time, K is the carrying capacity, n is the population size and t\_lag refers to the time lag in the Gompertz model. 
+\begin{equation}\label{third_eq}
+    N_{(t)} = \frac {N_0Ke^{rt}}{(K + N_0(e^rt{} - 1))}
+\end{equation}
+
+\begin{equation}\label{four_eq}
+   log (N_{(t)}) = N_0 + (K - N_0)e^{-e^{r exp(1)^{\frac{t_lag - t}{K - N_0 log(10)} + 1}}}
+\end{equation}
+
+Both the logistic model and the Gompertz model took the minimum and maximum population level for parameters N\textunderscore 0 and K, respectively.  To fit r\textunderscore max I tested three different methods to see which supported the greater number of fits. These were OLS, setting an arbitrary value (of 0.01) and the maximum difference in any two successive time points. I then took the method that supported the greater number of fits forward for each model. 
+
+To set t\textunderscore lag for the Gompertz equation I found the last timepoint of the lag phase. By calculating the 2nd order derivative of the population and taking the maximum value, and then the corresponding timepoint. 
+
+\subsection{Model comparison}
+
+I calculated the residual sum of squares (RSS) for each model to measure the amount of variance in the dataset, which is not explained by the model itself. I carried out this equation in normal (\ref{fifth}) and log form (\ref{sixth}),where n is the number of timepoints in the subset, y is the predicted population, and x is the actual population. 
+
+\begin{equation}\label{fifth}
+   RSS = \sum_{i=1}^{n}  (y_i - x_i)^2
+\end{equation}
+\begin{equation}\label{sixth}
+ RSS = \sum_{i=1}^{n}  (log(y_i) - log(x_i))^2
+\end{equation}
+
+After visualising the residuals, I continued to the next stage of comparison using the normal RSS values. Then calculated the AIC$_c$ (\ref{seven}), I used the RSS value previously calculated, n refers to the sample size and p refers to the number of model parameters. The number of model parameters is 3 for the quadratic and logistic models and 4 for the cubic and Gompetz models. 
+
+\begin{equation}\label{seven}
+   AIC_c = n (log(\frac{RSS}{n})) + 2p(\frac{n}{n-p-1})
+\end{equation}
+
+To create comparable AIC$_c$ values I used Akaike weights, which takes the relative likelihood of the model (\ref{eight}) over the sum of all the model's relative likelihood (\ref{nine}). Delta refers to the AIC$_c$ of the specific model that is the best model, which is the minimum AIC$_c$ value of the four fitted models. 
+
+\begin{equation}\label{eight}
+\Delta_i = AIC_i - AIC_{min}
+\end{equation}
+\begin{equation}\label{nine}
+W_i= \frac{exp(-0.5\Delta_i)}{\sum exp(-0.5\Delta_i)}
+\end{equation}
+
+Following the AIC$_c$ calculation, I was able to compute which model performed the best fit for each unique growth curve. I took this a step further, using the Akaike weights I was able to determine which model was the best fit with greater certainty. 
+
+I investigated if there was any significance between the medium used to cultivate the bacteria of each unique growth curve and the model which fitted it best. I carried this out using a Chi-square test of independence.
+
+\section{Results}
+\subsection{Model fitting}
+I attempted to fit all four models to each unique growth curve. I have plotted two examples of this below (Fig 1). They are plotted on a normal scale for population density, this involved exponentiating the population density points for the Gompertz model. The examples are \textit{Arthrobacter sp. 62}, at 20\degree C in TGE agar and \textit{Lactobaciulus plantarum} at 25\degree C in MRS, respectively. 
+
+\begin{figure}[htbp]
+		\centering
+		\includegraphics[height= 10cm, width= 15cm]{../results/fig1.png}
+		\caption{Population growth curves fitted to four models, for (a) \textit{Arthrobacter sp. 62} and (b) \textit{Lactobaciulus plantarum}.} 
+		\label{Figure 1}
+	\end{figure}
+ 
+
+The quadratic and cubic models successfully fitted all 285 growth curves. By adjusting the methods used to set the starting value of r\textunderscore max, I was able to optimise the Logistic and Gompertz models to fit the maximum number of growth curves (Table 1). I fitted 276 out of 285 growth curves for the Logistic model, and 277 out of 285 for the Gompertz model. This gave me a total of 269 growth curves successfully fitted to four models. 
+
+\begin{table}[h]
+    \caption{When the method of calculating the r parameter is changes, this is number of model fits for the logistic and Gompertz model for each growth curve}
+    \centering
+    \begin{tabular}{l|c |c }
+    Method & Logistic & Gompertz \\\hline
+    OLS & 147 & 277 \\
+    Arbitary & 276 & 254 \\
+    Max diff & 250 & 223
+    \end{tabular}
+    \end{table}
+
+\subsection{Model comparison} 
+I examined the diagnostic plots of a subset of the data to check for normal distribution of my normal and log residuals. I found that my normal residuals were sufficiently distributed for my cubic, quadratic and logistic models. To check the normal residuals of the Gompertz model I exponentiated the values, the residuals were sufficiently normally distributed, however to a lesser extent than the other models. I moved forwards in comparison solely using normal data. 
+
+Taking the lowest AIC$_c$ value for each unique growth curve, the logistic model was found to be the best fit, followed by the cubic (Fig 2a). As a more conclusive result, my Akiake Weights had 188 unique growth curves which had a model average of over 0.9, of which the Logistic Model was the leading model (79\%), followed by the cubic (19\%), quadratic and Gompertz (each 1\%) (Fig 2b). 
+
+\begin{figure}[htbp]
+		\centering
+		\includegraphics[height= 10cm, width= 15cm]{../results/fig2.png}
+		\caption{Proportion of models which fit best, with reference to the lowest AIC$_c$ value (a) and Akaike weights (b).} 
+		\label{Figure 2}
+	\end{figure}
+ 
+
+Through further investigation the medium in which the bacteria was cultivated in significantly affected which model was the best fit (p < 0.005, df = 34, N = 184), between logistic and cubic (Fig 3). Growth curves which had no best fit, according to Akaikie weights, had no significant patterns with medium when the chi-square test of independence was calculated (p=0.034, df = 17, N = 56). 
+
+\begin{figure}[htbp]
+		\centering
+		\includegraphics[height= 12cm, width= 12cm]{../results/fig3.png}
+		\caption{The stacked frequency of the recorded medium for each model where either logsitic or cubic gave the best fit.} 
+		\label{Figure 3}
+	\end{figure}
+
+
+
+\section{Discussion}
+
+In this study, I have used both phenomenological and mechanistic models to fit to unique growth curves of bacteria populations. Understanding the downfalls and benefits of each model, when fitted to data, allows a better understanding growth rates \cite{zwietering_modeling_1990}.  Literature shows different results and opinions as to which model is the optimal for growth curves of microbial populations. Zwietering et al. (1990) suggest the Gompertz is the optimal model, whilst Buchanan et al (1997) put forward the three-phase linear model as the most effective \cite{zwietering_modeling_1990,buchanan_when_1997}. Other studies suggest that the use of phenomenological models should not be ruled out, as they have merits of mathematical simplicity \cite{smith-simpson_estimating_2007}. These contrasting decisions were summarised well by Peleg and Corradini (2011), who failed to find one specific model that gives the optimum fit, and therefore suggested that the choice of model should be based on simplicity and meaning. \cite{peleg_microbial_2011}. 
+
+I used the arbitrary metrics of AIC$_c$ and Akiakie weights to calculate which model held the best fit for the majority of the data. Akaike weights state a single model can only be supported when the score is greater than 0.9 \cite{johnson_model_2004}. Therefore, by the arbitrary metric of Akaike weights, I was able to conclude that the logistic model fit the most curves (Fig 2b). Using my AIC$_c$ values I took the lowest value of each for models to infer the same results (Fig 2a). This gave only a small difference in the proportions, further supporting these previous conclusions. 
+
+As the logistic model is a mechanistic model it uses empirical data, allowing it to have a higher predictive power of the biological processes occurring within the growth curve, than a phenomenological model. The ability to alter the parameters in mechanistic models, as I did with r\textunderscore max (Table 1), allows the opportunity to increase the number of fits to a dataset. In contrast, there is no flexibility in the phenomenological models. The logistic model generally gave a good fit to the majority of my unique growth curves (Fig 2), it is, however important to draw on some downfalls of this model. As does not consider the possibility of mortality within cells, the model cannot truly reproduce the population growth of bacteria \cite{peleg_microbial_2011}.  It also is unable to produce a true sigmoid curve, which is the understood shape for bacterial growth curves \cite{fujikawa_new_2004}. 
+
+The Gompertz model is praised within the literature, due to its use of time lag in better fitting to models \cite{zwietering_modeling_1990}. With the use of sampling, I could improve my study to create more realistic parameters to get a more optimal output for this model. Referring to Figure 1, visually it could be argued that the Gompertz model has the best fit for the data points. This may not equate to the best model as the AIC$_c$ calculation penalises the number of parameters. It is also important that further work to study the fit of the residuals of the Gompertz model would be important. As the model was transformed from log into normal values, this could impact the residuals, and therefore the RSS in the AIC$_c$ calculation. 
+
+Both my cubic and quadratic models fit to every unique growth curve, to a varying degree, which was understood by observing the RSS values. My cubic polynomial model was the second best-fitted model to the data (Fig 2). As seen, is not uncommon for a phenological model to produce a better fit than mechanistic models \cite{white_should_2019}. The shape of a cubic polynomial reflects that of an S with a minimum and maximum and an inflection point which can be rising or horizontal. This described shape in some form is like that of a sigmoid growth curve, with inflection points \cite{zwietering_modeling_1990}, therefore, this could help to explain the high number of best fits to this model. 
+
+Upon further investigation, I found a preference for medium in relation to model fit, between logistic and the cubic polynomial model (Fig 3). TSB was the common factor between the medium and the cubic model being the best-fitted model (Fig 3). One suggestion as to why is that carrying capacity is set as a limit to exponential growth in the logistic model. This may not be an essential feature of bacterial growth within this medium. Environmental factors can affect growth rates \cite{sibly_population_2002,baranyi_dynamic_1994}. Therefore, further testing to understand this significance could involve improvements to remove biases within the dataset, as there are some mediums, genera and temperatures which are more prominently used than others. 
+
+Another factor to consider within model comparison is the number of parameters in a model, which varies between three and four in my study. Zwietering et al. (1990) state that if three-parameter models can sufficiently fit and describe the growth curve, then that is the optimal choice. However, there will be some cases, for example when a large number of data points are collected, where the four-parameter models may produce a better fit \cite{zwietering_modeling_1990}. In my study, the potential effects of this are seen in the model selection choosing the logistic model over the Gompertz as the preferential mechanistic model in most unique growth curves. 
+
+Often studies have to make sacrifices to make models manageable, this could mean forgoing generality or specificity, for example \cite{levins_strategy_1966,smith-simpson_estimating_2007}. There is a movement towards favouring the use of mechanistic models within this field \cite{baranyi_dynamic_1994,zwietering_modeling_1990}. To understand why this is, it is important to take a step back and fundamentally understand how phenomenological and mechanistic models differ. As seen, it is often the case that phenomenological may fit growth curves best, and will always fit to the data, ignorant of the goodness of fit. However, these types of models are less useful for understanding the biological system and what is going on underneath the fitting. It is important that when determining which form of model to use, there is an understanding of what the main aim of the study or question is, as this could affect the choice. 
+
+The importance of modelling growth curves has meant that there is constant development and adjustment to models to optimal fit data. This study could take further directions to include a greater variety of models, to better understand what parameters may improve fit, or cause greater bias. Examples could include the three-phase linear model \cite{buchanan_when_1997}, or the new logistic model for growth\cite{fujikawa_new_2004}. This study acts as a gateway to open up different avenues of further research of model fitting for growth curves. I have used arbitrary metrics to support the hypothesis that mechanistic models outperform phenomenological models in determining the population growth of bacterial populations. My study also aims to highlight the importance of understanding the type of model used (phenomenological or mechanistic), why it is used and the aims of its use. Growth curves are a fundamental concept within understanding bacteria, as well as other organisms, it acts as the foundation for many other processes within population ecology and evolution \cite{sibly_population_2002}. It is therefore important that work is continued to improve our understanding of this concept and the accuracy of our predictions. 
+
+
+\bibliographystyle{apalike}
+
+\bibliography{miniproject_report}
+
+\end{document}

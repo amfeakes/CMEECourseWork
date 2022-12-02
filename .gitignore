@@ -26,6 +26,15 @@
 *.Rhistory
 !week3/data/*
 *week3/code/Rplots.pdf
+
+#week7 edits
+*week7/code/.ipynb_checkpoints
+
+#miniproject edits 
+!miniproject/data/LogisticGrowthData.csv
+
 ##always exculded 
 .idea
-
+*week4
+*week5
+*week6modelling
