@@ -32,7 +32,7 @@ The repositories for each week respectively
 
   * This repository contains the courserwork material for the CMEE miniproject
 
-## [hpc](hpc)
+### [hpc](hpc)
   
   * This repository contains all the hand in scripts for the hpc week practicals, the .e .o and .rda files have been omitted. 
 
