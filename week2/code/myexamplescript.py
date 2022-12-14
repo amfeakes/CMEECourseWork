@@ -10,6 +10,7 @@ __version__ = '0.0.1'
 
 #the function
 def foo(x):
+    """This function calculates the square of the inputted variable"""
     print("The square of the inputted variable")
     x *= x #same as x = x*x
     print(x)

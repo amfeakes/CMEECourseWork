@@ -16,6 +16,7 @@ taxa = [ 'Quercus robur',
          'Quercus petraea'
          ]
 def is_an_oak(name): #only oak species that start w Quercus are returned
+    """ Only species starting with quercus will be returned"""
     return name.lower().startswith('quercus ')
 
 #using for loops 

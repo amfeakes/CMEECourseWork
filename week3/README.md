@@ -1,6 +1,6 @@
 # Week 3 Repository 
 
-This contains all the coursework/practicals for week 1 of the CMEE course.
+This contains all the coursework/practicals for week 3 of the CMEE course.
 
 Specifically working on the first four topics in [The Multilingual Quantitative Biologist](https://mhasoba.github.io/TheMulQuaBio/intro.html) online book. 
 
@@ -9,6 +9,7 @@ Specifically working on the first four topics in [The Multilingual Quantitative 
 
 ## Languages
 R version 3.6.2 (2019-12-12)
+Python 3.10.8
 
 ## Dependencies
 ggplot2 
@@ -146,3 +147,20 @@ This script uses examples of vectorisation, creating a vectorised output for the
 [compilelatex.sh](code/compilelatex.sh)
 
 This is a shell script used to compile LaTeX and Bibtex into a PDF. 
+
+
+### Groupwork 
+
+[get_TreeHeight.R](code/get_TreeHeight.R) This calculates the tree heights for all trees and saves the output as a csv.
+
+[get_TreeHeight.py](code/get_TreeHeight.py) This is a python script that calculates the tree heights for all trees and saves the output as a csv.
+
+[run_get_TreeHeight.sh](code/run_get_TreeHeight.sh) This script runs both get_TreeHeight.R and get_Treeheight.py.
+
+[TAutoCorr.R](code/TAutoCorr.R) This script is to calculate the correlation between pairs of years to analyse the tempature trends in florida.
+
+[TAutoCorr.tex](code/TAutoCorr.tex) This is a report that needs to be compliled, refering to the analysis of TAutoCorr.R.
+
+[TAutoCorr.bib](code/TAutoCorr.bib) This is the bibliography for the report above.
+
+[PP_Regress_Loc.R](code/PP_Regress_loc.R) This scripts calculates the linear regression on subsets of feeding type, predator life stage and location.

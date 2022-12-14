@@ -11,7 +11,7 @@ import sys #module to interface out program with the operating system
 import doctest #import the doc test module
 
 def even_or_odd(x=0): #if not specificed, x should take the valuo 0 
-    """Fine whether a number x is odd or even
+    """Define whether a number x is odd or even
 
     >>> even_or_odd(10)
     '10 is Even'
@@ -32,6 +32,7 @@ def even_or_odd(x=0): #if not specificed, x should take the valuo 0
 
 ## standard functions##
 def main(argv):
+    """Main argument"""
     print(even_or_odd (22))
     print(even_or_odd (33))
     return 0 

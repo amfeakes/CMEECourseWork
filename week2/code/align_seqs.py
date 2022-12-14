@@ -18,6 +18,7 @@ import sys
 #this function reads in the csv from the data directory
 #it then takes the contents and places it is seq file, taking each object and naming seqa and seqb
 def read_csv():
+    """This reads the inputted csv to unpack it/"""
     with open ("../data/sequences.csv", 'r') as seqfile:
         csvreader = csv.reader(seqfile)
         seqfile = [row[0] for row in csvreader]
@@ -28,7 +29,7 @@ def read_csv():
 #this function computes the score of the alignment
 #using a for loop and the length of the sequences
 def calculate_score(s1, s2, l1, l2, startpoint):
-    """This computes the score """
+    """This computes the score/"""
     matched = "" # to hold string displaying alignements
     score = 0
     for i in range(l2):
@@ -50,6 +51,7 @@ def calculate_score(s1, s2, l1, l2, startpoint):
 #this function takes the inputted sequences, calaculates their length
 #it requires the first seqeneces to be longer than the second - if this is not already the case this will swap the sequences around
 def assign(foo1,foo2):
+    """This assigns the sequences depending on their length."""
     #os.rename(seq1, s1)
     #os.rename(seq2, s2)
     l1 = len(foo1)
@@ -66,6 +68,7 @@ def assign(foo1,foo2):
 #this function uses calculate_score function (already defined)
 #uses a for loop with a range of the length of seq1
 def calculate_best(s1, s2, l1, l2):
+    """This finds the best match for the fasta sequences."""
     best_a = None
     best_s = -1
     for i in range(l1): # Note that you just take the last alignment with the highest score
@@ -87,6 +90,7 @@ def calculate_best(s1, s2, l1, l2):
 
 ###STANDARD FUNCTIONS###
 def main(argv):
+    """Read in the data from fasta files, find the best algiment and save the results."""
     #input
     seq1 , seq2 = read_csv() #returns a tuple and then implicit unpacking into seq 1/2
     #assigning seq

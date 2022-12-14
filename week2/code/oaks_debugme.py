@@ -25,7 +25,8 @@ def is_an_oak(name):
     """
     return name.lower().startswith('quercus ') #quercus space as space is part of the string
 
-def main(argv): 
+def main(argv):
+    """This is the main argument, running the data"""
     f = open('../data/TestOaksData.csv','r')
     g = open('../data/JustOaksData.csv','w')
     taxa = csv.reader(f)

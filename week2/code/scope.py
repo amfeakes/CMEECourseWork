@@ -14,11 +14,10 @@ print("Before calling a_fuction, outside the function, the value of _a_global is
 print("Before calling a_function, outside the function, the value of _b_global is", _b_global)
 
 def a_function():
+    """This explains global and local variables within a function """
     _a_global = 4 #a local variable  - as function is named this value has been changed ONLY inside the function
-
     if _a_global >= 4:
         _b_global = _a_global + 5 #also a local variable - updated inside the fucntion
-
     _a_local = 3
     #this is in the function - so will only exist inside, not outside
     print("Inside the function, the value of _a_global is", _a_global)
@@ -37,6 +36,7 @@ print("After calling a_function, outside the function, the value of _a_local is 
 _a_global = 10
 
 def a_function():
+    """This prints the local and global variables inside and outside the function."""
     _a_local = 4
 
     print("Inside the function, the value _a_local is", _a_local)
@@ -52,6 +52,7 @@ _a_global = 10
 print("Before calling a_function, outside the function, the value of _a_global is", _a_global)
 
 def a_function():
+    """This shows when the global value is called inside the function."""
     global _a_global
     _a_global = 5 #outside the function
     _a_local = 4 #in the function
@@ -63,6 +64,7 @@ a_function()
 print("After calling a_function, outside the function, the value of _a_global now is", _a_global)
 #####################
 def a_function():
+    """This shows how to create a global variable within a function."""
     _a_global = 10
 
     def _a_function2():
@@ -81,6 +83,7 @@ print("The value of a_global in main workspace / namespace now is", _a_global)
 _a_global = 10
 
 def a_function():
+    """This explains calling global functions."""
     def _a_function2():
         global _a_global
         _a_global = 20

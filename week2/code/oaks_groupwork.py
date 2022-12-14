@@ -1,9 +1,11 @@
 #!/usr/bin/env ipython3
 
-"""This script is an exercise to practise using debugging and ipdb."""
+"""This script is an exercise modify headers on searches and outputs, a groupwork practical."""
 
-__appname__ = 'oaks_debugme.py'
-__author__ = 'Amy Feakes (amf222@ic.ac.uk)'
+__appname__ = 'oaks_groupwork.py'
+__author__ = 'Electric Emus (amy.feakes22@imperial.ac.uk, f.ferreira22@imperial.ac.uk,\
+                             zitong.zhao22@imperial.ac.uk, xuanyin.zheng22@imperial.ac.uk,\
+                             dongxuan.zhu22@imperial.ac.uk)'
 __version__ = '0.0.1'
 
 ##Imports
@@ -25,11 +27,13 @@ def is_an_oak(name):
     """
     return name.lower().startswith('quercus ') #quercus space as space is part of the string
 
-def main(argv): 
+def main(argv):
     f = open('../data/TestOaksData.csv','r')
     g = open('../data/JustOaksData.csv','w')
     taxa = csv.reader(f)
+    first_row = next(taxa) #skips the first line of file
     csvwrite = csv.writer(g)
+    csvwrite.writerow(['Genus',' species'])
     oaks = set()
     for row in taxa:
         print(row)

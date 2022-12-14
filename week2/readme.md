@@ -99,3 +99,15 @@ This script shows how to  print information from nested tuples.
 [using_name.py](code/using_name.py)
 
 This script illustrates if __name__= __main__ function.
+
+### Groupwork 
+
+[align_seqs_fasta.py](code/align_seqs_fasta.py)
+ This script is used to align two DNA sequences in the best possible way. It uses inputs of any two fasta files, and will use defaults if no files are provided.
+
+[align_seqs_better.py](code/align_seqs_better.py)
+This script is used to align two DNA sequences, providing all equally-best alignments in a text output, in the results directory.
+
+[oaks_groupwork.py](code/oaks_groupwork.py) This improves the oaks.py script to include column headers.
+
+

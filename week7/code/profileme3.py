@@ -1,7 +1,7 @@
 #!/usr/bin/env ipython3
 
-"""This script is based on understand profiling, where improvements have converted a loop to a
-list compreheension. ."""
+"""This script is based on understand profiling, where improvements
+are using numpy arrays."""
 
 __appname__ = 'profileme2.py'
 __author__ = 'Amy Feakes (amf222@ic.ac.uk)'
@@ -9,10 +9,10 @@ __version__ = '0.0.1'
 
 ##IMPORTS
 import sys
-
+import numpy as np
 
 def my_squares(iters):
-    out = [i ** 2 for i in range(iters)]
+    out = np.array([i ** 2 for i in range(iters)])
     return out
 
 def my_join(iters, string):

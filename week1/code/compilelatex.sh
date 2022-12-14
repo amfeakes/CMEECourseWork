@@ -27,7 +27,7 @@ fi
  mv $NAME.pdf ../results
 
  #this line of code is limited to mac
- #open -a "Preview" ../results/$NAME.pdf &
+ open -a "Preview" ../results/$NAME.pdf &
 
 ## Cleanup
    # [ -e *.aux ] && rm *.aux
@@ -40,7 +40,7 @@ fi
     rm *.log
     rm *.bbl
     rm *.blg
-
+    
 exit
 
 #still one issue Transcript written on firstexample.log. ? 

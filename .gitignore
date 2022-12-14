@@ -20,7 +20,9 @@
 !week1/data/fasta/*
 
 #week2 edits 
-!week2/data/sequences.csv
+!week2/data/*.csv
+!week2/data/*.fasta
+!week2/data/testp.p
 
 #week3 edits 
 *.Rhistory
@@ -29,12 +31,16 @@
 
 #week7 edits
 *week7/code/.ipynb_checkpoints
+!week7/data/*
 
 #miniproject edits 
 !miniproject/data/LogisticGrowthData.csv
+
+#hpc edits
 
 ##always exculded 
 .idea
 *week4
 *week5
 *week6modelling
+
