@@ -26,37 +26,47 @@ If you wish to run the scripts within the repository - you should clone the repo
 ## Usage
 
 [fmr.R](code/fmr.R)
+
 The script is used as an example of subprocessing, it plots the relationship between metabolic rate and body mass. 
 
 [LV1.py](code/LV1.py)
+
 This script demonstratesnumerical intergration to solve the Lotka-Volterra model for predator-prey system. It outputs two figures as PDFs
 
 [LV2.py](code/LV2.py)
+
 This script demonstratesnumerical intergration to solve the Lotka-Volterra model for predator-prey system with density dependence. It outputs two figures as PDFs
 
 [LVspeed.sh](code/LVspeed.sh)
+
 This scripts profiles LV1.py and LV2.py using the %run -p approach. 
 
 [myfirstjupyternb.ipynb](code/myfirstjupyternb.ipynb)
 This is an example of a jupyter notebook, illustrating how jupyter can be used. 
 
 [profileme.py](code/profileme.py)
+
 This script demonstrates profiling in python. 
 
 [profileme2.py](code/profileme2.py)
+
 This script demonstrates improved profiling in python. 
 
 [profileme3.py](code/profileme3.py)
+
 This script is based on understand profiling, where improvements
 are made using numpy arrays.
 
 [run_fmr_R.py](code/run_fmr_R.py)
+
 This script demonstates using subprocessing to generate fmr.R
 
 [TestR.py](code/TestR.py)
+
 This script tests the subprocess running an Rscript, TestR.R, through unix in python subprocess.
 
 [TestR.R](code/TestR.R)
+
 This script is to test verbose and subprocessing
 
 ### Groupwork 
