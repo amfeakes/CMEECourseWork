@@ -42,6 +42,7 @@ This script demonstratesnumerical intergration to solve the Lotka-Volterra model
 This scripts profiles LV1.py and LV2.py using the %run -p approach. 
 
 [myfirstjupyternb.ipynb](code/myfirstjupyternb.ipynb)
+
 This is an example of a jupyter notebook, illustrating how jupyter can be used. 
 
 [profileme.py](code/profileme.py)
