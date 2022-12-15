@@ -11,6 +11,16 @@ Specifically working on the first four topics in [The Multilingual Quantitative 
 R version 3.6.2 (2019-12-12)
 Python 3.10.8
 
+## Dependencies 
+Python: 
+* numpy
+* scipy
+* scipy.integrate
+* matplotlib.pylab
+* subprocess
+* timeit
+* doctest
+
 ## Installation 
 If you wish to run the scripts within the repository - you should clone the repository.
 ## Usage
@@ -26,6 +36,9 @@ This script demonstratesnumerical intergration to solve the Lotka-Volterra model
 
 [LVspeed.sh](code/LVspeed.sh)
 This scripts profiles LV1.py and LV2.py using the %run -p approach. 
+
+[myfirstjupyternb.ipynb](code/myfirstjupyternb.ipynb)
+This is an example of a jupyter notebook, illustrating how jupyter can be used. 
 
 [profileme.py](code/profileme.py)
 This script demonstrates profiling in python. 

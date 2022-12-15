@@ -32,6 +32,7 @@
 #week7 edits
 *week7/code/.ipynb_checkpoints
 !week7/data/*
+!week7/code/myfirstjupyternb.ipynb
 
 #miniproject edits 
 !miniproject/data/LogisticGrowthData.csv
