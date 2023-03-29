@@ -1,0 +1,144 @@
+Starting code feedback for Amy, Week6
+
+Current Points = 100
+
+Note that: 
+(1) Major sections begin with a double "====" line 
+(2) Subsections begin with a single "====" line 
+(3) Code output or text file content are printed within single "*****" lines 
+
+======================================================================
+======================================================================
+Your Git repo size this week is about 3.00 MiB on disk 
+
+PART 1: Checking project workflow...
+
+Found the following directories in parent directory: .git, week7, week3, week2, Feedback, miniproject, week1
+
+Found the following files in parent directory: README.md, .gitignore
+
+Checking for key files in parent directory...
+
+Found .gitignore in parent directory, great! 
+
+Printing contents of .gitignore:
+
+**********************************************************************
+##for files which we dont want to track - we ignore 
+##with git ignore there is the option to whitelist or blacklist 
+# can do via black listing, or whitelisting 
+## whitelisting - ignore every file, then explicitly include the ones you want 
+*~ 
+# ignore every file 
+*.*
+#now through ! execption, include file types wanted 
+!.gitignore
+!*.R
+!*.py
+!*.sh
+!*.tex
+!*.bib
+!*.md
+!*.txt
+
+#week1 edits 
+!week1/code/*.txt
+!week1/data/fasta/*
+
+#week2 edits 
+!week2/data/*.csv
+!week2/data/*.fasta
+!week2/data/testp.p
+
+#week3 edits 
+*.Rhistory
+!week3/data/*
+*week3/code/Rplots.pdf
+
+#week7 edits
+*week7/code/.ipynb_checkpoints
+!week7/data/*
+!week7/code/myfirstjupyternb.ipynb
+
+#miniproject edits 
+!miniproject/data/LogisticGrowthData.csv
+
+#hpc edits
+
+##always exculded 
+.idea
+*week4
+*week5
+*week6modelling
+
+
+**********************************************************************
+
+Found README in parent directory, named: README.md
+
+Printing contents of README.md:
+
+**********************************************************************
+# My CMEE Coursework Repository
+This repository contains all coursework materials, based on the [The Multilingual Quantitative Biologist](https://mhasoba.github.io/TheMulQuaBio/intro.html) online book. For the Computational Methods in Ecology and Evolution course, at Imperial College London, Silwood Park 22-23. 
+
+## Group work 
+The groupwork coursework is details within each week directory. Our groupwork repository can be found here [electric_emus](https://github.com/amfeakes/electric_emus.git).
+
+## Contents 
+The repositories for each week respectively 
+
+### [Week 1](week1)
+
+  * Unix and Linux introduction
+  * Shell scripting
+  * Version control with Git
+  * Scientific documents with LATEX
+
+### [Week 2](week2)
+
+  * Biological computing in Python (I)
+
+### [Week 3](week3)
+  
+  * Biological computing in R 
+  * Data management and visualisation 
+
+### [Week 7](week7)
+
+  * Biological computing in Python (II)
+  * Introduction to Juypter
+
+### [miniproject](miniproject)
+
+  * This repository contains the courserwork material for the CMEE miniproject
+
+### [hpc](hpc)
+  
+  * This repository contains all the hand in scripts for the hpc week practicals, the .e .o and .rda files have been omitted. 
+
+## Author 
+Amy Feakes
+amf222@ic.ac.uk
+
+**********************************************************************
+
+======================================================================
+Looking for the weekly directories...
+
+Found 4 weekly directories: week1, week2, week3, week7
+
+The Week6 directory will be assessed 
+
+======================================================================
+======================================================================
+PART 2: Checking weekly code and workflow...
+
+======================================================================
+======================================================================
+
+FINISHED WEEKLY ASSESSMENT
+
+Current Points for the Week = 100
+
+NOTE THAT THESE ARE POINTS, NOT MARKS FOR THE WEEK!
